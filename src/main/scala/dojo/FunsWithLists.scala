@@ -33,7 +33,12 @@ object FunsWithLists {
 
   def increaseRatingBy(inc: Int, ls: List[Game]) = ls map {g => Game(g.label, g.rating + inc)}
 
-  def decreaseRatingBy(i: Int, s: String, list: List[Game]) = Nil
+  def decreaseRatingBy(i: Int, s: String, list: List[Game]) = list map {
+    g => Game(
+      g.label,
+      if (g.label == s) g.rating - i else g.rating
+    )
+  }
 
   def createFunctionToFindGamesByLabel(label: String):(List[Game]) => List[Game] = identity(_)
 
