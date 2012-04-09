@@ -23,7 +23,7 @@ object FunsWithLists {
   def totalRatingsOfLabel(label: String, list: List[Game]):Int = {
     /* 1 BONUS POINT : complete this in an imperative style */
     var total = 0
-    list foreach { game =>
+    for (game <- list) {
       if (game.label == label) {
         total += game.rating
       }
