@@ -31,7 +31,7 @@ object FunsWithLists {
     return total
   }
 
-  def increaseRatingBy(inc: Int, ls: List[Game]) = Nil
+  def increaseRatingBy(inc: Int, ls: List[Game]) = ls map {g => Game(g.label, g.rating + inc)}
 
   def decreaseRatingBy(i: Int, s: String, list: List[Game]) = Nil
 
