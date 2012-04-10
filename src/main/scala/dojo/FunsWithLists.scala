@@ -42,6 +42,6 @@ object FunsWithLists {
 
   def createFunctionToFindGamesByLabel(label: String):(List[Game]) => List[Game] = _.filter(_.label == label)
 
-  def zipWithKey = (f: (Game) => String, ls: List[Game]) => for (g <- ls) yield (f(g), g)
+  def zipWithKey = (f: (Game) => String, ls: List[Game]) => (ls map f) zip ls
 
 }
