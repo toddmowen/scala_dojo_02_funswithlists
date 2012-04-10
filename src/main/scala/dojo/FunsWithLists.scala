@@ -44,4 +44,15 @@ object FunsWithLists {
 
   def zipWithKey = (f: (Game) => String, ls: List[Game]) => (ls map f) zip ls
 
+  def firstGameWithRating(r: Int) = (ls: List[Game]) => ls.filter(_.rating == r).head
+  //
+  // 1. This is almost but not quite equivalent to:
+  //
+  //        def firstGameWithRating(r: Int)(ls: List[Game]) = ...
+  //
+  //    which however does not pass the test unless the call to firstGameWithRating is
+  //    modified to use partial application syntax (a trailing underscore).
+  //
+  // 2. The use of filter in this situation is idiomatic in a non-strict language (Haskell),
+  //    but in Scala a better way is probably the 'find' method.
 }
